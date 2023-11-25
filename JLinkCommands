@@ -1,5 +1,5 @@
 h
-loadfile build/main.elf
+loadfile build/main.hex
 r
 g
 q

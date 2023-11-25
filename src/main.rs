@@ -13,16 +13,21 @@ use cortex_m_rt::entry;
 #[entry]
 fn main() -> ! {
     let peripherals: xmc4500::Peripherals = unsafe { xmc4500::Peripherals::steal() };
+
+    // setup led: port1 pin 0
+    peripherals.PORT1.hwsel().write(|w| w.hw0().value1());
+    peripherals.PORT1.omr().write(|w| w.pr0().set_bit());
+    peripherals.PORT1.pdr0().write(|w| w.pd0().sd_sle());
     peripherals
         .PORT1
-        .iocr0
-        .write(|w| unsafe { w.bits(0x10000) });
+        .iocr0()
+        .write(|w| w.pc0().value9() );
 
     loop {
         // your code goes here
         for _ in 0..(1 << 20) {
             asm::nop();
         }
-        peripherals.PORT1.omr.write(|w| unsafe { w.bits(0x10001) });
+        peripherals.PORT1.omr().write(|w| w.pr0().set_bit().ps0().set_bit());
     }
 }

@@ -1,7 +1,7 @@
 [target.thumbv7m-none-eabi]
 
 [target.'cfg(all(target_arch = "arm", target_os = "none"))']
-runner = './debug.sh'
+runner = './run.sh'
 
 rustflags = [
   "-C", "linker=arm-none-eabi-ld",
