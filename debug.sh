@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+JLinkGDBServer -device XMC4500 -endian little -if SWD -speed 1000 -logtofile -log JLinkLog -silent -vd & sleep 1 && sh -c "arm-none-eabi-gdb -command=GDBCommands -tui" && killall JLinkGDBServer

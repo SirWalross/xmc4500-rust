@@ -1,0 +1,1 @@
+To use, connect the `XMC4500 relax lite kit` to the usb port and run `cargo run`.

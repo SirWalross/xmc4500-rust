@@ -1,0 +1,6 @@
+file target/thumbv7em-none-eabi/debug/rust
+target remote localhost:2331
+monitor reset
+load
+break main
+

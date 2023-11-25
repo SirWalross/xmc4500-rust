@@ -1,0 +1,6 @@
+h
+loadfile build/main.elf
+r
+g
+q
+
